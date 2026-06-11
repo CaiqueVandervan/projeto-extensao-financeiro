@@ -1,10 +1,6 @@
 "use client"
 
-import { Button, TextField } from "@mui/material"
 import { useEffect, useState } from "react"
-import AddIcon from '@mui/icons-material/Add';
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 const formatBRL = (value: number) =>
     new Intl.NumberFormat("pt-BR", {
@@ -114,24 +110,18 @@ const FinancialSimulator = () => {
                                 </span>
                             </p>
 
-                            
+
 
                             <div className="grid gap-2 text-center">
                                 {balance > 0 ? (
-                                <span className="text-green-600">Continue assim!</span>
-                            ): (
-                                <span className="text-red-600">Bora tentar economizar mais!</span>
-                            )}
-                                <Button sx={{
-                                    background: "#16a34a",
-                                    '&:hover': { backgroundColor: "#22c55e" },
-                                }}
-                                    variant="contained"
-                                    size="large"
-                                    endIcon={<KeyboardArrowLeftIcon />}
+                                    <span className="text-green-600">Continue assim!</span>
+                                ) : (
+                                    <span className="text-red-600">Bora tentar economizar mais!</span>
+                                )}
+                                <button
                                     onClick={handleBackToSimulation}>
                                     Simular Novamente
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -140,140 +130,35 @@ const FinancialSimulator = () => {
                 ) : (
                     <div className="flex flex-col gap-6 items-center">
                         <div className="grid gap-3">
-                            <div className="flex gap-2">
-                                <TextField label="Renda Mensal"
-                                    onChange={(e) => handleMoneyChange(e.target.value, setIncome, setIncomeDisplay)}
-                                    value={incomeDisplay}
-                                    sx={{
-                                        '& input[type=number]::-webkit-inner-spin-button': {
-                                            WebkitAppearance: 'none',
-                                            margin: 0,
-                                        },
-                                        '& .MuiInputBase-input': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiInputLabel-root': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiOutlinedInput-root': {
-                                            '&:hover fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                        },
-                                    }} />
-                                <Button sx={{
-                                    background: "#16a34a",
-                                    '&:hover': {
-                                        backgroundColor: "#22c55e",
-                                    },
-                                    '&:disabled': {
-                                        backgroundColor: "#d1fae5"
-                                    },
-                                    '&.Mui-disabled svg': {
-                                        color: '#94a3b8',
-                                    },
-                                }}
+                            <div className="flex gap-2">=
+                                <button
                                     onClick={() => handleAddExpenses(income, setArrIncome, () => {
                                         setIncome(0)
                                         setIncomeDisplay("")
                                     })}
                                     disabled={!income}>
-                                    <AddIcon sx={{ color: "black" }} />
-                                </Button>
+                                </button>
                             </div>
 
 
                             <div className="flex gap-2">
-                                <TextField label="Gastos Fixos"
-                                    onChange={(e) => handleMoneyChange(e.target.value, setFixedExpenses, setFixedExpensesDisplay)}
-                                    value={fixedExpansesDisplay}
-                                    sx={{
-                                        '& input[type=number]::-webkit-inner-spin-button': {
-                                            WebkitAppearance: 'none',
-                                            margin: 0,
-                                        },
-                                        '& .MuiInputBase-input': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiInputLabel-root': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiOutlinedInput-root': {
-                                            '&:hover fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                        },
-                                    }} />
-                                <Button sx={{
-                                    background: "#16a34a",
-                                    '&:hover': {
-                                        backgroundColor: "#22c55e",
-                                    },
-                                    '&:disabled': {
-                                        backgroundColor: "#d1fae5"
-                                    },
-                                    '&.Mui-disabled svg': {
-                                        color: '#94a3b8',
-                                    },
-                                }}
+                                <button
                                     onClick={() => handleAddExpenses(fixedExpenses, setArrFixedExpenses, () => {
                                         setFixedExpenses(0)
                                         setFixedExpensesDisplay("")
                                     })}
                                     disabled={!fixedExpenses}>
-                                    <AddIcon sx={{ color: "black" }} />
-                                </Button>
+                                </button>
                             </div>
 
                             <div className="flex gap-2">
-                                <TextField label="Gastos Variados"
-                                    onChange={(e) => handleMoneyChange(e.target.value, setVariableExpenses, setVariableExpensesDisplay)}
-                                    value={variableExpensesDisplay}
-                                    sx={{
-                                        '& input[type=number]::-webkit-inner-spin-button': {
-                                            WebkitAppearance: 'none',
-                                            margin: 0,
-                                        },
-                                        '& .MuiInputBase-input': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiInputLabel-root': {
-                                            color: 'black',
-                                        },
-                                        '& .MuiOutlinedInput-root': {
-                                            '&:hover fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'black',
-                                            },
-                                        },
-                                    }} />
-                                <Button sx={{
-                                    background: "#16a34a",
-                                    '&:hover': {
-                                        backgroundColor: "#22c55e",
-                                    },
-                                    '&:disabled': {
-                                        backgroundColor: "#d1fae5"
-                                    },
-                                    '&.Mui-disabled svg': {
-                                        color: '#94a3b8',
-                                    },
-                                }}
+                                <button
                                     onClick={() => handleAddExpenses(variableExpenses, setArrVariableExpenses, () => {
                                         setVariableExpenses(0)
                                         setVariableExpensesDisplay("")
                                     })}
                                     disabled={!variableExpenses}>
-                                    <AddIcon sx={{ color: "black" }} />
-                                </Button>
+                                </button>
                             </div>
                         </div>
 
@@ -323,30 +208,12 @@ const FinancialSimulator = () => {
                         </div>
 
                         <div className="flex items-center justify-center">
-                            <Button
-                                variant="contained"
-                                size="large"
-                                endIcon={<CurrencyExchangeIcon />}
+                            <button
                                 disabled={arrIncome.length === 0 || arrFixedExpenses.length === 0 || arrVariableExpenses.length === 0}
                                 onClick={handleResult}
-                                sx={{
-                                    background: "#16a34a",
-                                    '&:hover': { backgroundColor: "#22c55e" },
-                                    '&:disabled': { backgroundColor: "#d1fae5" },
-                                    color: "black",
-
-                                    '& .MuiButton-endIcon svg': {
-                                        fontSize: 22,
-                                        color: 'black',
-                                    },
-
-                                    '&.Mui-disabled .MuiButton-endIcon svg': {
-                                        color: '#94a3b8',
-                                    },
-                                }}
                             >
                                 Simular
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 )}

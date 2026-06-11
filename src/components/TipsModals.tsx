@@ -1,8 +1,6 @@
 "use client"
 
-import { Box, Modal, Typography } from "@mui/material"
 import { useState } from "react"
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useRouter } from 'next/navigation'
 
 const TipsModals = () => {
@@ -18,7 +16,7 @@ const TipsModals = () => {
     }
 
     return (
-        <main className="grid grid-rows-3 gap-4">
+        <main className="grid grid-rows-3 gap-4 z-10">
             <div className="flex gap-4">
                 <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
                     onClick={() => handleOpenModal("importância")}>
@@ -67,22 +65,12 @@ const TipsModals = () => {
                 <section className="bg-[#16a34a] p-4 w-40 h-32 rounded-2xl flex items-center justify-center cursor-pointer mx-auto"
                     onClick={() => router.push("/financial-simulator")}>
                     <p className="text-center">Simulador Financeiro</p>
-                    <AttachMoneyIcon />
                 </section>
             </div>
 
-            <Modal open={open} onClose={() => setOpen(false)}>
-                <Box sx={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    maxWidth: 550,
-                    bgcolor: 'white',
-                    p: 4,
-                    outline: 'none',
-                    borderRadius: 4
-                }}>
+            {open && (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setOpen(false)}>
+                <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-zinc-900 p-6 text-white shadow-xl max-w-2xl w-[90%]"
+                    onClick={(e) => e.stopPropagation()}>
 
                     {selectetTip === "importância" && (
                         <div className="grid gap-3">
@@ -181,15 +169,16 @@ const TipsModals = () => {
                                 Dica de Investimento
                             </h2>
                             <p>A poupança, apesar de ser muito utilizada, não é a opção mais eficiente para quem busca fazer o dinheiro crescer, pois possui rendimentos baixos. O ideal é buscar alternativas com melhor rentabilidade, como investimentos de renda fixa, por exemplo o CDB, que pode oferecer retornos mais interessantes dependendo da instituição e do prazo.</p>
-                            
+
                             <p>Uma estratégia importante para quem deseja aumentar o patrimônio é manter organização financeira ao longo do mês, utilizando o cartão de crédito de forma consciente para concentrar os gastos. Ao receber o salário, a pessoa pode quitar todas as despesas e, com o valor que sobrar, direcionar uma parte para investimentos.</p>
-                            
+
                             <p>Dessa forma, o dinheiro não fica parado, mas passa a trabalhar continuamente, ajudando no crescimento gradual do patrimônio ao longo do tempo.</p>
                         </div>
                     )}
 
-                </Box>
-            </Modal>
+                </div>
+            </div>)}
+
         </main>
     )
 }
