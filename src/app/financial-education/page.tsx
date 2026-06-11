@@ -1,6 +1,6 @@
 "use client"
 
-import TipsModals from "../components/TipsModals"
+import TipsModals from "../../components/TipsModals"
 
 const FinancialEducation = () => {
     return(
