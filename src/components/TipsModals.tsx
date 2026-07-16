@@ -15,66 +15,72 @@ const TipsModals = () => {
         setSelectetTip(tip)
     }
 
+    const sectionClass = "bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer hover:scale-103 duration-100"
+    const rowClass = "flex items-center gap-4"
+    const paragraphClass = "text-center"
+    const contentClass = "grid gap-3"
+    const h2Class = "text-2xl font-bold"
+
     return (
         <main className="grid grid-rows-3 gap-4 z-10">
-            <div className="flex gap-4">
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+            <div className={rowClass}>
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("importância")}>
-                    <p className="text-center">Importância da Educação Financeira</p>
+                    <p className={paragraphClass}>Importância da Educação Financeira</p>
                 </section>
 
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("benefícios")}>
-                    <p className="text-center">Benefícios do Controle Financeiro</p>
+                    <p className={paragraphClass}>Benefícios do Controle Financeiro</p>
                 </section>
 
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("economizar")}>
-                    <p className="text-center">Economizar Dinheiro</p>
+                    <p className={paragraphClass}>Economizar Dinheiro</p>
                 </section>
             </div>
 
-            <div className="flex gap-4">
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+            <div className={rowClass}>
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("dívidas")}>
-                    <p className="text-center">Evitar Dívidas</p>
+                    <p className={paragraphClass}>Evitar Dívidas</p>
                 </section>
 
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("cartão")}>
-                    <p className="text-center">Uso Consciente do Cartão de Crédito</p>
+                    <p className={paragraphClass}>Uso Consciente do Cartão de Crédito</p>
                 </section>
 
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("reserva")}>
-                    <p className="text-center">Importância da Reserva de Emergência</p>
+                    <p className={paragraphClass}>Importância da Reserva de Emergência</p>
                 </section>
             </div>
 
-            <div className="flex items-center gap-4">
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+            <div className={rowClass}>
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("render")}>
-                    <p className="text-center">Faça seu Dinheiro Parado Render</p>
+                    <p className={paragraphClass}>Faça seu Dinheiro Parado Render</p>
                 </section>
 
-                <section className="bg-white p-4 w-48 h-40 rounded-2xl flex items-center justify-center cursor-pointer"
+                <section className={sectionClass}
                     onClick={() => handleOpenModal("investimento")}>
-                    <p className="text-center">Dica de Investimento</p>
+                    <p className={paragraphClass}>Dica de Investimento</p>
                 </section>
 
-                <section className="bg-[#16a34a] p-4 w-40 h-32 rounded-2xl flex items-center justify-center cursor-pointer mx-auto"
+                <section className="bg-[#16a34a] p-4 w-40 h-32 rounded-2xl flex items-center justify-center cursor-pointer mx-auto hover:scale-103 duration-100"
                     onClick={() => router.push("/financial-simulator")}>
-                    <p className="text-center">Simulador Financeiro</p>
+                    <p className={paragraphClass}>Simulador Financeiro</p>
                 </section>
             </div>
 
             {open && (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={() => setOpen(false)}>
-                <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-zinc-900 p-6 text-white shadow-xl max-w-2xl w-[90%]"
+                <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-zinc-900 p-6 text-white shadow-xl max-w-2xl w-[90%] transition-all duration-300"
                     onClick={(e) => e.stopPropagation()}>
 
                     {selectetTip === "importância" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Importância da Educação Financeira
                             </h2>
                             <p>A educação financeira é fundamental para desenvolver uma relação mais saudável com o dinheiro.</p>
@@ -86,8 +92,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "benefícios" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Benefícios do Controle Financeiro
                             </h2>
                             <p>O controle financeiro ajuda a organizar melhor a vida financeira e entender para onde o dinheiro está sendo direcionado.</p>
@@ -99,8 +105,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "economizar" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Economizar Dinheiro
                             </h2>
                             <p>Economizar dinheiro é um hábito importante para garantir estabilidade financeira e realizar objetivos futuros.</p>
@@ -112,8 +118,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "dívidas" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Evitar Dívidas
                             </h2>
                             <p>Evitar dívidas é essencial para manter a estabilidade financeira e reduzir preocupações no dia a dia.</p>
@@ -125,8 +131,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "cartão" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Uso Consciente do Cartão de Crédito
                             </h2>
                             <p>O cartão de crédito pode ser uma ferramenta útil quando utilizado com responsabilidade.</p>
@@ -138,8 +144,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "reserva" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Importância da Reserva de Emergência
                             </h2>
                             <p>A reserva de emergência é um valor guardado para lidar com situações inesperadas e coisas que precisam de uma certa atenção de imediato, como problemas de saúde, desemprego ou despesas urgentes, como quebrar o carro ou geladeira.</p>
@@ -151,8 +157,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "render" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Faça seu Dinheiro Parado Render
                             </h2>
                             <p>Ter dinheiro parado significa deixar o dinheiro sem trabalhar, como apenas na conta corrente ou guardado sem rendimento. Com o tempo, isso faz com que ele perca valor por causa da inflação.</p>
@@ -164,8 +170,8 @@ const TipsModals = () => {
                     )}
 
                     {selectetTip === "investimento" && (
-                        <div className="grid gap-3">
-                            <h2 className="text-2xl font-bold">
+                        <div className={contentClass}>
+                            <h2 className={h2Class}>
                                 Dica de Investimento
                             </h2>
                             <p>A poupança, apesar de ser muito utilizada, não é a opção mais eficiente para quem busca fazer o dinheiro crescer, pois possui rendimentos baixos. O ideal é buscar alternativas com melhor rentabilidade, como investimentos de renda fixa, por exemplo o CDB, que pode oferecer retornos mais interessantes dependendo da instituição e do prazo.</p>
