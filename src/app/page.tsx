@@ -21,13 +21,17 @@ const Home = () => {
           Desenvolver uma aplicação digital educativa voltada à educação financeira, com o intuito de conscientizar e auxiliar no aprendizado sobre organização financeira pessoal, controle de gastos e planejamento econômico.
         </p>
       </section>
-      <div className="absolute bottom-16">
-        <button className="bg-green-400 flex items-center gap-2 p-3 rounded-2xl text-xl cursor-pointer hover:bg-green-500 hover:scale-105 duration-300"
+      <div className="absolute bottom-20">
+        <button className="bg-green-400 flex items-center gap-2 p-3 rounded-2xl text-xl cursor-pointer hover:bg-green-500 hover:scale-103 duration-100"
           onClick={() => router.push("/financial-education")}>
           Começar
           <Icon icon="ic:round-start" className="mt-0.5" />
         </button>
       </div>
+
+      <footer className="absolute bottom-4 text-[#f8fafc]">
+        @Caique Vandervan
+      </footer>
     </main>
 
   )
