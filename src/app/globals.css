@@ -4,9 +4,3 @@
 :root {
     --background: #07140d;
 }
-
-html,
-body {
-    background: var(--background);
-    font-family: "Iosevka Charon", monospace;
-}
