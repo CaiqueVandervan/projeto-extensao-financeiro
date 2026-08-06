@@ -11,7 +11,8 @@ const Home = () => {
     <main className="relative h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-[url(/fundo.png)] z-0 bg-cover bg-center" />
       <header className="absolute top-16 text-[#f8fafc] font-extrabold text-4xl">
-        Projeto de Extensão I
+        <div>
+        </div>Projeto de Extensão I
       </header>
       <section className="bg-white max-w-5xl p-4 rounded-2xl z-10 shadow-lg">
         <p className="text-4xl text-center">

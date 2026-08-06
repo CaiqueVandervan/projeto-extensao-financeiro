@@ -31,12 +31,10 @@ export default function BreadCrumbs({ items }: BreadCrumbsArray) {
                                     onClick={() => router.push(item.url)}>
                                     {item.label}
                                 </button>
-                                <span className="text-[32px]">{">"}</span>
+                                <span className="text-[32px] pb-1">{">"}</span>
                             </div>
 
                         )}
-
-
                     </div>
                 )
             })}
